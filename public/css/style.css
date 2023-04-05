@@ -1,0 +1,89 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.page-hero {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: .9;
+}
+
+.page-sidekick {
+    width: 100%;
+    min-height: 300px;
+    height: 50vh;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: .9;
+}
+
+.page-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.page-center-contents {
+    min-width: 25%;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/* html, body{
+  height: 100%;
+  margin:0px;
+  padding: 0px;
+} */
+
+#particles {
+    background: #000;
+    min-height: 100%;
+}
+
+.cup-card {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 20px;
+    text-align: center;
+}
+
+.cup-nav {
+    z-index: 2;
+}
+
+.footer-bg {
+    padding: 10px;
+    opacity: .5;
+}
+
+.footer-text {
+    opacity: .9;
+}
+
+.text-overflow-hidden {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 350px;
+}
