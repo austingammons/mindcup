@@ -33,7 +33,7 @@ Contact me if you're having issues with running this project locally.
     - includes.php
     - sessions.php
   - service ( our service files that contain CRUD functions and business logic, one service file belongs to an entire page's folder )
-    - account.php ( in relation to page/account/filename.php for example )
+    - account.php ( in relation to page/account/ and all of that folder's files for example )
   - vendor ( our third party code, like Sentiment )
 
 
