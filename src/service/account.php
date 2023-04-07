@@ -7,13 +7,13 @@ class AccountService extends BaseService {
     function Login($email, $password) {
 
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("SELECT * FROM users WHERE email = :email");
+        $statement = $connection->prepare("SELECT * FROM tbl_users WHERE email = :email");
         $statement->execute(array(":email" => $email));
         $result = $statement->fetch();
 
         if ($result) {
 
-            if (password_verify($password, $result["password_sh"]))
+            if (password_verify($password, $result["password"]))
             {
                 session_start();
 
@@ -41,8 +41,8 @@ class AccountService extends BaseService {
         $password_hash = password_hash($post_vars["password"], PASSWORD_DEFAULT);
         
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("INSERT INTO users (user_name, email, password_sh)VALUES (:user_name, :email, :password_sh)");
-        $statement->execute(array(":user_name" => $post_vars["username"], ":email" => $post_vars["email"], ":password_sh" => $password_hash));
+        $statement = $connection->prepare("INSERT INTO tbl_users (username, email, password)VALUES (:username, :email, :password)");
+        $statement->execute(array(":username" => $post_vars["username"], ":email" => $post_vars["email"], ":password" => $password_hash));
 
         if ($statement->rowCount() > 0) {
             header("Location: ../../page/account/login");

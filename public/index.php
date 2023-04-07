@@ -1,11 +1,7 @@
-<?php
+<?php include('../src/functions/includes.php'); ?>
 
-include('../src/functions/includes.php');
+<?php include('page/shared/header.php'); ?>
 
-include('page/shared/header.php');
+<?php include('page/route.php'); ?>
 
-include('page/route.php');
-
-include('page/shared/footer.php');
-
-?>
+<?php include('page/shared/footer.php');?>

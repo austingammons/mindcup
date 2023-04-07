@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="row">
     <div class="col-lg-12">
         <div class="page-center">
-            <div class="page-center-contents">
+            <div class="page-center-contents-quarter">
             <h1>Login</h1>
             <p>Enter your credentials to continue</p>
             <form class="form-inline" method="post" novalidate>
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <input type="password" id="password" name="password" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-dark">Login</button>
                 </div>
             </form>
         </div>

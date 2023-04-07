@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
     <div class="col-lg-12">
         <div class="page-center">
-            <div class="page-center-contents">
+            <div class="page-center-contents-quarter">
             <h1>Register</h1>
             <p>Create an account to get started</p>
             <form class="form-inline" method="post" novalidate>
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <input type="password" id="password_confirmation" name="password_confirmation" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary">submit</button>
+                    <button class="btn btn-dark">submit</button>
                 </div>
             </form>
         </div>

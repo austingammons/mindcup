@@ -10,15 +10,15 @@ function analyze($thought) {
     $compound = $result["compound"];
 
     if ($compound < -0.5) {
-        echo "<b>very negative</b>";
+        echo "very negative";
     } else if ($compound < 0.0 && $compound > -0.5) {
-        echo "<b>negative</b>";
+        echo "negative";
     } else if ($compound > 0.5) {
-        echo "<b>very positive</b>";
+        echo "very positive";
     } else if ($compound > 0.0 && $compound < 0.5) {
-        echo "<b>positive</b>";
+        echo "positive";
     } else if ($compound > -0.15 && $compound < 0.15) {
-        echo "<b>neutral</b>";
+        echo "neutral";
     }
 
 }

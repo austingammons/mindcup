@@ -23,6 +23,7 @@ $routes_that_dont_require_login = [
     'account/logout' => 'account/logout.php',
     'account/register_success' => 'account/register_success.php',
     'account/register' => 'account/register.php',
+    'test/index' => 'test/index.php',
 ];
 
 $accessible_folders = [ 'account', 'home', 'thought' ];
