@@ -14,6 +14,18 @@ $routes = [
     'thought/edit' => 'thought/edit.php',
     'thought/index' => 'thought/index.php',
     'thought/read' => 'thought/read.php',
+    'concept/create' => 'concept/create.php',
+    'concept/delete' => 'concept/delete.php',
+    'concept/edit' => 'concept/edit.php',
+    'concept/index' => 'concept/index.php',
+    'concept/read' => 'concept/read.php',
+
+    'paradigm/create' => 'paradigm/create.php',
+    'paradigm/delete' => 'paradigm/delete.php',
+    'paradigm/edit' => 'paradigm/edit.php',
+    'paradigm/index' => 'paradigm/index.php',
+    'paradigm/read' => 'paradigm/read.php',
+
     'test/index' => 'test/index.php',
 ];
 

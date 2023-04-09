@@ -8,8 +8,8 @@
             <div class="navbar-nav">
                 <?php if (isset($_SESSION['user'])): ?>
                     <a class="nav-link" href="../thought/index">Thoughts</a>
-                    <a class="nav-link" href="../thought/index">Concepts</a>
-                    <a class="nav-link" href="../thought/index">Paradigms</a>
+                    <a class="nav-link" href="../concept/index">Concepts</a>
+                    <a class="nav-link" href="../paradigm/index">Paradigms</a>
                 <?php endif; ?>
             </div>
             <div class="navbar-nav ms-auto">

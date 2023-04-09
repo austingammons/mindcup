@@ -1,10 +1,10 @@
 <?php
 
-include('../src/service/thought.php');
-$service = new ThoughtService();
+include('../src/service/concept.php');
+$service = new ConceptService();
 
-$thought_id = $_GET['thought_id'];
-$data = $service->get_thought_by_thought_id($thought_id);
+$concept_id = $_GET['concept_id'];
+$data = $service->get_concept_by_concept_id($concept_id);
 
 ?>
 
@@ -12,7 +12,7 @@ $data = $service->get_thought_by_thought_id($thought_id);
     <div class="col-lg-12">
         <div class="page-center">
             <div class="page-center-contents">
-            <h1>Read Thought</h1>
+            <h1>Read Concept</h1>
             <p>Reflect on yourself.</p>
             <hr />
             <div class="form-group mb-2">
@@ -20,15 +20,15 @@ $data = $service->get_thought_by_thought_id($thought_id);
                 <div><?= htmlspecialchars(trim($data["title"]) ?? "")?></div>
             </div>
             <div class="form-group mb-2">
-                <label for="thought">Thought</label><span class="float-right" id="counter"></span>
+                <label for="concept">Concept</label><span class="float-right" id="counter"></span>
                 <div>
-                    <?= htmlspecialchars($data["thought"] ?? "")?>
+                    <?= htmlspecialchars($data["concept"] ?? "")?>
                 </div>
             </div>
             <hr />
             <div class="form-group mb-2">
-                <a href="edit?&thought_id=<?php echo $data["id"]; ?>" class="btn btn-outline-dark">edit</a>
-                <a href="delete?thought_id=<?php echo $data['id']; ?>" class="btn btn-outline-danger float-right">delete</a>
+                <a href="edit?&concept_id=<?php echo $data["id"]; ?>" class="btn btn-outline-dark">edit</a>
+                <a href="delete?concept_id=<?php echo $data['id']; ?>" class="btn btn-outline-danger float-right">delete</a>
             </div>
         </div>
     </div>

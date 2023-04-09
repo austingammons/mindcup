@@ -106,7 +106,7 @@ canvas {
     max-height: 440px;
 }
 
-#counter {
+.float-right {
     float: right;
 }
 
