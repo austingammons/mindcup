@@ -1,12 +1,12 @@
 <?php
 
 include('../src/service/thought.php');
-$service = new ThoughtService();
 
+$service = new ThoughtService();
 $thought_id = $_GET['thought_id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $result = $service->update_thought_by_thought_id($thought_id, $_POST['title'], $_POST['thought']);
+    $result = $service->update_thought_by_thought_id($thought_id, $_POST['title'], $_POST['text']);
     header("Location:index");
 }
 
@@ -26,8 +26,8 @@ $data = $service->get_thought_by_thought_id($thought_id);
                     <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars(trim($data["title"]) ?? "")?>">
                 </div>
                 <div class="form-group mb-2">
-                    <label for="thought">Thought</label><span class="float-right" id="counter"></span>
-                    <textarea id="thought" name="thought" class="form-control mindcup-textarea" maxlength="2000"><?= htmlspecialchars($data["thought"] ?? "")?></textarea>
+                    <label for="text">Thought</label><span class="float-right" id="counter"></span>
+                    <textarea id="text" name="text" class="form-control mindcup-textarea" maxlength="2000"><?= htmlspecialchars($data["text"] ?? "")?></textarea>
                 </div>
                 <div class="form-group mb-2">
                     <button type="submit" class="btn btn-outline-dark">save</button>

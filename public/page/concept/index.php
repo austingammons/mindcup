@@ -3,7 +3,7 @@
 include('../src/service/concept.php');
 
 $service = new ConceptService();
-$data = $service->get_all_concepts_by_user_id($_SESSION["user"]["id"]);
+$data = $service->get_all_concepts_by_user_guid($_SESSION["user"]["user_guid"]);
 
 ?>
 
@@ -28,10 +28,10 @@ $data = $service->get_all_concepts_by_user_id($_SESSION["user"]["id"]);
             </td>
             <td>
                 <span class="text-overflow-hidden">
-                    <?= $record["concept"]; ?>
+                    <?= $record["text"]; ?>
                 </span>
             </td>
-            <td><?= date('F d, Y \a\t H:i A', strtotime($record["date"])); ?></td>
+            <td><?= date('F d, Y', strtotime($record["date"])); ?></td>
             <td>
                 <a href="edit?&concept_id=<?php echo $record["id"]; ?>" class="btn btn-outline-dark">edit</a>
             </td>

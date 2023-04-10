@@ -38,11 +38,14 @@ class AccountService extends BaseService {
 
     function Register($post_vars) {
 
+        $this->get_form_validation_errors($post_vars);
+
         $password_hash = password_hash($post_vars["password"], PASSWORD_DEFAULT);
-        
+        $user_guid = Security::guid();
+
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("INSERT INTO tbl_users (username, email, password)VALUES (:username, :email, :password)");
-        $statement->execute(array(":username" => $post_vars["username"], ":email" => $post_vars["email"], ":password" => $password_hash));
+        $statement = $connection->prepare("INSERT INTO tbl_users (user_guid, username, email, password, date)VALUES (:user_guid, :username, :email, :password, :date)");
+        $statement->execute(array(':user_guid' => $user_guid, ':username' => $post_vars['username'], ':email' => $post_vars['email'], ':password' => $password_hash, ':date' => date('Y/m/d')));
 
         if ($statement->rowCount() > 0) {
             header("Location: ../../page/account/login");

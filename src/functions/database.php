@@ -6,6 +6,13 @@ class Database {
     public $dbname = "mindcup";
     public $username = "root";
     public $password = "";
+
+        public static $columns = [
+        'tbl_users_columns' => ['id', 'user_guid', 'username', 'email', 'password', 'date'],
+        'tbl_thoughts_columns' => ['id', 'user_guid', 'title', 'text', 'concept_id', 'date'],
+        'tbl_concepts_columns' => ['id', 'user_guid', 'title', 'text', 'paradigm_id', 'date'],
+        'tbl_paradigms_columns' => ['id', 'user_guid', 'title', 'text', 'date']
+    ];
     
     function get_connection_mysqli() {
         $connection = new mysqli($this->host, $this->username, $this->password, $this->dbname);

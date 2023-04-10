@@ -4,10 +4,10 @@ include('base.php');
 
 class ParadigmService extends BaseService {
 
-    function get_all_paradigms_by_user_id($user_id) {
+    function get_all_paradigms_by_user_guid($user_guid) {
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("SELECT * FROM tbl_paradigms WHERE user_id = :user_id");
-        $statement->execute(array(":user_id" => $user_id));
+        $statement = $connection->prepare("SELECT * FROM tbl_paradigms WHERE user_guid = :user_guid");
+        $statement->execute(array(":user_guid" => $user_guid));
         return $statement->fetchAll();
     }
 
@@ -18,17 +18,17 @@ class ParadigmService extends BaseService {
         return $statement->fetch();
     }
 
-    function update_paradigm_by_paradigm_id($paradigm_id, $paradigm_title, $paradigm_text) {
+    function update_paradigm_by_paradigm_id($paradigm_id, $title, $text) {
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("UPDATE tbl_paradigms SET paradigm = :paradigm_text, title = :paradigm_title WHERE id = :paradigm_id");
-        $statement->execute(array(":paradigm_text" => $paradigm_text, ":paradigm_title" => $paradigm_title, ":paradigm_id" => $paradigm_id));
+        $statement = $connection->prepare("UPDATE tbl_paradigms SET text = :text, title = :title WHERE id = :paradigm_id");
+        $statement->execute(array(":text" => $text, ":title" => $title, ":paradigm_id" => $paradigm_id));
         return $statement->rowCount();
     }
 
-    function create_paradigm($user_id, $paradigm_title, $paradigm_text) {
+    function create_paradigm($user_guid, $title, $text) {
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("INSERT INTO tbl_paradigms (user_id, title, paradigm) VALUES (:user_id, :paradigm_title, :paradigm_text)");
-        $statement->execute(array(":user_id" => $user_id, ":paradigm_title" => $paradigm_title, ":paradigm_text" => $paradigm_text));
+        $statement = $connection->prepare("INSERT INTO tbl_paradigms (user_guid, title, text, date) VALUES (:user_guid, :title, :text, :date)");
+        $statement->execute(array(":user_guid" => $user_guid, ":title" => $title, ":text" => $text, ':date' => date('Y/m/d')));
         return $statement->rowCount();
     }
 

@@ -4,7 +4,7 @@ include('../src/service/concept.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $service = new ConceptService();
-    $result = $service->create_concept($_SESSION['user']['id'], $_POST['title'], $_POST['concept']);
+    $result = $service->create_concept($_SESSION['user']['user_guid'], $_POST['title'], $_POST['text']);
     header("Location:index");
 }
 
@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <input type="text" id="title" name="title" class="form-control" maxlength="100"></input>
                 </div>
                 <div class="form-group mb-2">
-                    <label for="concept">Concept</label><span class="float-right" id="counter"></span>
-                    <textarea type="text" id="concept" name="concept" class="form-control mindcup-textarea" maxlength="2000" rows="10" cols="50"></textarea>
+                    <label for="text">Concept</label><span class="float-right" id="counter"></span>
+                    <textarea type="text" id="text" name="text" class="form-control mindcup-textarea" maxlength="2000" rows="10" cols="50"></textarea>
                 </div>
                 <div class="form-group mb-2">
                     <button type="submit" class="btn btn-outline-dark">create</button>

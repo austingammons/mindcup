@@ -4,7 +4,7 @@ include '../src/vendor/Sentiment/score.php';
 include('../src/service/thought.php');
 
 $service = new ThoughtService();
-$data = $service->get_all_thoughts_by_user_id($_SESSION["user"]["id"]);
+$data = $service->get_all_thoughts_by_user_guid($_SESSION["user"]["user_guid"]);
 
 $score = new Score();
 
@@ -32,11 +32,11 @@ $score = new Score();
             </td>
             <td>
                 <span class="text-overflow-hidden">
-                    <?= $record["thought"]; ?>
+                    <?= $record["text"]; ?>
                 </span>
             </td>
-            <td><?= $score->single($record["thought"]); ?></td>
-            <td><?= date('F d, Y \a\t H:i A', strtotime($record["date"])); ?></td>
+            <td><?= $score->single($record["text"]); ?></td>
+            <td><?= date('F d, Y', strtotime($record["date"])); ?></td>
             <td>
                 <a href="edit?&thought_id=<?php echo $record["id"]; ?>" class="btn btn-outline-dark">edit</a>
             </td>

@@ -6,7 +6,7 @@ $service = new ConceptService();
 $concept_id = $_GET['concept_id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $result = $service->update_concept_by_concept_id($concept_id, $_POST['title'], $_POST['concept']);
+    $result = $service->update_concept_by_concept_id($concept_id, $_POST['title'], $_POST['text']);
     header("Location:index");
 }
 
@@ -26,8 +26,8 @@ $data = $service->get_concept_by_concept_id($concept_id);
                     <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars(trim($data["title"]) ?? "")?>">
                 </div>
                 <div class="form-group mb-2">
-                    <label for="concept">Concept</label><span class="float-right" id="counter"></span>
-                    <textarea id="concept" name="concept" class="form-control mindcup-textarea" maxlength="2000"><?= htmlspecialchars($data["concept"] ?? "")?></textarea>
+                    <label for="text">Concept</label><span class="float-right" id="counter"></span>
+                    <textarea id="text" name="text" class="form-control mindcup-textarea" maxlength="2000"><?= htmlspecialchars($data["text"] ?? "")?></textarea>
                 </div>
                 <div class="form-group mb-2">
                     <button type="submit" class="btn btn-outline-dark">save</button>

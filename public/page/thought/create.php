@@ -4,7 +4,7 @@ include('../src/service/thought.php');
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $service = new ThoughtService();
-    $result = $service->create_thought($_SESSION['user']['id'], $_POST['title'], $_POST['thought']);
+    $result = $service->create_thought($_SESSION['user']['user_guid'], $_POST['title'], $_POST['thought']);
     header("Location:index");
 }
 

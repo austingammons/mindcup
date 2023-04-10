@@ -4,10 +4,10 @@ include('base.php');
 
 class ConceptService extends BaseService {
 
-    function get_all_concepts_by_user_id($user_id) {
+    function get_all_concepts_by_user_guid($user_guid) {
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("SELECT * FROM tbl_concepts WHERE user_id = :user_id");
-        $statement->execute(array(":user_id" => $user_id));
+        $statement = $connection->prepare("SELECT * FROM tbl_concepts WHERE user_guid = :user_guid");
+        $statement->execute(array(":user_guid" => $user_guid));
         return $statement->fetchAll();
     }
 
@@ -18,17 +18,17 @@ class ConceptService extends BaseService {
         return $statement->fetch();
     }
 
-    function update_concept_by_concept_id($concept_id, $concept_title, $concept_text) {
+    function update_concept_by_concept_id($concept_id, $title, $text) {
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("UPDATE tbl_concepts SET concept = :concept_text, title = :concept_title WHERE id = :concept_id");
-        $statement->execute(array(":concept_text" => $concept_text, ":concept_title" => $concept_title, ":concept_id" => $concept_id));
+        $statement = $connection->prepare("UPDATE tbl_concepts SET text = :text, title = :title WHERE id = :concept_id");
+        $statement->execute(array(":text" => $text, ":title" => $title, ":concept_id" => $concept_id));
         return $statement->rowCount();
     }
 
-    function create_concept($user_id, $concept_title, $concept_text) {
+    function create_concept($user_guid, $title, $text) {
         $connection = $this->database->get_connection_pdo();
-        $statement = $connection->prepare("INSERT INTO tbl_concepts (user_id, title, concept) VALUES (:user_id, :concept_title, :concept_text)");
-        $statement->execute(array(":user_id" => $user_id, ":concept_title" => $concept_title, ":concept_text" => $concept_text));
+        $statement = $connection->prepare("INSERT INTO tbl_concepts (user_guid, title, text, date) VALUES (:user_guid, :title, :text, :date)");
+        $statement->execute(array(":user_guid" => $user_guid, ":title" => $title, ":text" => $text, ':date' => date('Y/m/d')));
         return $statement->rowCount();
     }
 

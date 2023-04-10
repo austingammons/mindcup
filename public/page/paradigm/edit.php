@@ -6,7 +6,7 @@ $service = new ParadigmService();
 $paradigm_id = $_GET['paradigm_id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $result = $service->update_paradigm_by_paradigm_id($paradigm_id, $_POST['title'], $_POST['paradigm']);
+    $result = $service->update_paradigm_by_paradigm_id($paradigm_id, $_POST['title'], $_POST['text']);
     header("Location:index");
 }
 
@@ -26,8 +26,8 @@ $data = $service->get_paradigm_by_paradigm_id($paradigm_id);
                     <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars(trim($data["title"]) ?? "")?>">
                 </div>
                 <div class="form-group mb-2">
-                    <label for="paradigm">Paradigm</label><span class="float-right" id="counter"></span>
-                    <textarea id="paradigm" name="paradigm" class="form-control mindcup-textarea" maxlength="2000"><?= htmlspecialchars($data["paradigm"] ?? "")?></textarea>
+                    <label for="text">Paradigm</label><span class="float-right" id="counter"></span>
+                    <textarea id="text" name="text" class="form-control mindcup-textarea" maxlength="2000"><?= htmlspecialchars($data["text"] ?? "")?></textarea>
                 </div>
                 <div class="form-group mb-2">
                     <button type="submit" class="btn btn-outline-dark">save</button>
