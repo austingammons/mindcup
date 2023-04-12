@@ -1,6 +1,5 @@
 <?php
 
-include('../src/service/concept.php');
 $service = new ConceptService();
 
 $concept_id = $_GET['concept_id'];

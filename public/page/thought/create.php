@@ -1,10 +1,11 @@
 <?php
 
-include('../src/service/thought.php');
+$concept_service = new ConceptService();
+$concepts = $concept_service->get_all_concepts_by_user_guid($_SESSION['user']['user_guid']);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $service = new ThoughtService();
-    $result = $service->create_thought($_SESSION['user']['user_guid'], $_POST['title'], $_POST['thought']);
+    $thought_service = new ThoughtService();
+    $result = $thought_service->create_thought($_SESSION['user']['user_guid'], $_POST['title'], $_POST['thought'], $_POST['concept_id']);
     header("Location:index");
 }
 
@@ -18,8 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p>What's on your mind?</p>
             <form class="form-inline" method="post">
                 <div class="form-group mb-2">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" rows="10" cols="50"></input>
+                    <?php echo Helper::selector($concepts, 'concept_selector', 'concept_id', 'Concept', '0'); ?>
+                </div>
+                <div class="form-group mb-2">
+                    <?php echo Helper::input('text', 'title_input', 'title', '', 'Title'); ?>
                 </div>
                 <div class="form-group mb-2">
                     <label for="thought">Thought</label><span class="float-right" id="counter"></span>

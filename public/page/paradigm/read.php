@@ -1,6 +1,5 @@
 <?php
 
-include('../src/service/paradigm.php');
 $service = new ParadigmService();
 
 $paradigm_id = $_GET['paradigm_id'];

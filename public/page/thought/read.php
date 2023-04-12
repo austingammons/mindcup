@@ -1,6 +1,5 @@
 <?php
 
-include('../src/service/thought.php');
 $service = new ThoughtService();
 
 $thought_id = $_GET['thought_id'];

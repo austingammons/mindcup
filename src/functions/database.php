@@ -3,7 +3,7 @@
 class Database {
 
     public $host = "localhost";
-    public $dbname = "mindcup";
+    public $dbname = "admin";
     public $username = "root";
     public $password = "";
 

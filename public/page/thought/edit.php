@@ -1,12 +1,13 @@
 <?php
 
-include('../src/service/thought.php');
+$concept_service = new ConceptService();
+$concepts = $concept_service->get_all_concepts_by_user_guid($_SESSION['user']['user_guid']);
 
 $service = new ThoughtService();
 $thought_id = $_GET['thought_id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $result = $service->update_thought_by_thought_id($thought_id, $_POST['title'], $_POST['text']);
+    $result = $service->update_thought_by_thought_id($thought_id, $_POST['title'], $_POST['text'], $_POST['concept_id']);
     header("Location:index");
 }
 
@@ -22,8 +23,11 @@ $data = $service->get_thought_by_thought_id($thought_id);
             <p>Change your mind.</p>
             <form class="form-inline" method="post">
                 <div class="form-group mb-2">
+                    <?php echo Helper::selector($concepts, 'concept_selector', 'concept_id', 'Concept', $data['concept_id']); ?>
+                </div>
+                <div class="form-group mb-2">
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars(trim($data["title"]) ?? "")?>">
+                    <?php echo Helper::input('text', 'title_input', 'title', htmlspecialchars(trim($data["title"]) ?? ""), 'Title'); ?>
                 </div>
                 <div class="form-group mb-2">
                     <label for="text">Thought</label><span class="float-right" id="counter"></span>

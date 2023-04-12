@@ -1,7 +1,5 @@
 <?php
 
-include('base.php');
-
 class ParadigmService extends BaseService {
 
     function get_all_paradigms_by_user_guid($user_guid) {

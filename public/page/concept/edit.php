@@ -1,12 +1,13 @@
 <?php
 
-include('../src/service/concept.php');
-$service = new ConceptService();
+$paradigm_service = new ParadigmService();
+$paradigms = $paradigm_service->get_all_paradigms_by_user_guid($_SESSION['user']['user_guid']);
 
+$service = new ConceptService();
 $concept_id = $_GET['concept_id'];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $result = $service->update_concept_by_concept_id($concept_id, $_POST['title'], $_POST['text']);
+    $result = $service->update_concept_by_concept_id($concept_id, $_POST['title'], $_POST['text'], $_POST['paradigm_id']);
     header("Location:index");
 }
 
@@ -22,8 +23,10 @@ $data = $service->get_concept_by_concept_id($concept_id);
             <p>Redefine the way you think.</p>
             <form class="form-inline" method="post">
                 <div class="form-group mb-2">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars(trim($data["title"]) ?? "")?>">
+                    <?php echo Helper::selector($paradigms, 'paradigm_selector', 'paradigm_id', 'Paradigm', $data['paradigm_id']); ?>
+                </div>
+                <div class="form-group mb-2">
+                    <?php echo Helper::input('text', 'title_input', 'title', htmlspecialchars(trim($data["title"]) ?? ""), 'Title'); ?>
                 </div>
                 <div class="form-group mb-2">
                     <label for="text">Concept</label><span class="float-right" id="counter"></span>

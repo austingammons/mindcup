@@ -1,7 +1,5 @@
 <?php 
 
-include('../src/service/account.php');
-
 $error_messages = [];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -23,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
     <div class="col-lg-12">
         <div class="page-center">
-            <div class="page-center-contents-quarter">
+            <div class="page-center-contents">
             <h1>Register</h1>
             <p>Create an account to get started</p>
             <form class="form-inline" method="post" novalidate>
@@ -44,7 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <input type="password" id="password_confirmation" name="password_confirmation" class="form-control">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-dark">submit</button>
+                    <a href="login" class="btn btn-outline-secondary">login</a>
+                    <button class="btn btn-outline-dark float-right">register</button>
                 </div>
             </form>
         </div>

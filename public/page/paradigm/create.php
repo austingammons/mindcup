@@ -1,7 +1,5 @@
 <?php
 
-include('../src/service/paradigm.php');
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $service = new ParadigmService();
     $result = $service->create_paradigm($_SESSION['user']['user_guid'], $_POST['title'], $_POST['text']);
@@ -18,8 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p>Pull yourself together.</p>
             <form class="form-inline" method="post">
                 <div class="form-group mb-2">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" maxlength="100"></input>
+                    <?php echo Helper::input('text', 'title_input', 'title', '', 'Title'); ?>
                 </div>
                 <div class="form-group mb-2">
                     <label for="text">Paradigm</label><span class="float-right" id="counter"></span>

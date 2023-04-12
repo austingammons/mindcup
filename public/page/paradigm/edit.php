@@ -1,6 +1,5 @@
 <?php
 
-include('../src/service/paradigm.php');
 $service = new ParadigmService();
 
 $paradigm_id = $_GET['paradigm_id'];
@@ -22,8 +21,7 @@ $data = $service->get_paradigm_by_paradigm_id($paradigm_id);
             <p>A new way of thinking is coming.</p>
             <form class="form-inline" method="post">
                 <div class="form-group mb-2">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title" class="form-control" value="<?= htmlspecialchars(trim($data["title"]) ?? "")?>">
+                    <?php echo Helper::input('text', 'title_input', 'title', htmlspecialchars(trim($data["title"]) ?? ""), 'Title'); ?>
                 </div>
                 <div class="form-group mb-2">
                     <label for="text">Paradigm</label><span class="float-right" id="counter"></span>
