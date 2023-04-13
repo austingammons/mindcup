@@ -4,16 +4,20 @@ $route = get_route();
 
 $routes = [
     'home/index' => 'home/index.php',
+
     'account/dashboard' => 'account/dashboard.php',
+    'account/settings' => 'account/settings.php',
     'account/login' => 'account/login.php',
     'account/logout' => 'account/logout.php',
     'account/register_success' => 'account/register_success.php',
     'account/register' => 'account/register.php',
+
     'thought/create' => 'thought/create.php',
     'thought/delete' => 'thought/delete.php',
     'thought/edit' => 'thought/edit.php',
     'thought/index' => 'thought/index.php',
     'thought/read' => 'thought/read.php',
+
     'concept/create' => 'concept/create.php',
     'concept/delete' => 'concept/delete.php',
     'concept/edit' => 'concept/edit.php',
@@ -26,6 +30,7 @@ $routes = [
     'paradigm/index' => 'paradigm/index.php',
     'paradigm/read' => 'paradigm/read.php',
 
+    'map/index' => 'map/index.php',
     'test/index' => 'test/index.php',
 ];
 

@@ -37,8 +37,6 @@ $data = $service->prepare_mind_wired_data($_SESSION["user"]["user_guid"]);
 
 <script>
 
-// https://github.com/yeori/mind-wired
-
 let liveMaster = {
     model: {
         type: 'text',

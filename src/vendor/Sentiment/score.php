@@ -2,12 +2,6 @@
 
 include 'Analyzer.php';
 
-// get score from an array of strings:
-// $score->multiple(array_column($data, 'thought')); 
-
-// get score from a string:
-// $score->single($record["thought"]);
-
 class Score {
 
     public $analyzer;

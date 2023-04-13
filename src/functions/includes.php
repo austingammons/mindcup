@@ -4,6 +4,7 @@ include('../src/functions/constants.php');
 include('../src/functions/sessions.php');
 
 include('../src/functions/database.php');
+include('../src/functions/security.php');
 include('../src/service/base.php');
 
 include('../public/page/shared/helper.php');

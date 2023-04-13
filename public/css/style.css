@@ -58,12 +58,6 @@ canvas {
     left: 0;
 }
 
-/* html, body{
-  height: 100%;
-  margin:0px;
-  padding: 0px;
-} */
-
 #particles {
     background: #000;
     height: calc(100vh - 56px);
@@ -119,61 +113,10 @@ canvas {
     float: right;
 }
 
-/* dragon styles */
-
 :root {
     --border-color: #e3e5e4;
     --background-color: #c3c7ca;
     --text-color: #34444f;
-}
-
-.dragon-list {
-    /* border: 1px solid var(--border-color); */
-    color: var(--text-color);
-    padding: 0;
-    list-style-type: none;
-}
-
-.dragon-list li {
-    background-color: #fff;
-    position: relative;
-}
-
-.dragon-list li:hover {
-    background-color: #c3c7ca;
-}
-
-.dragon-list li:not(:last-of-type) {
-    border-bottom: 1px solid var(--border-color);
-}
-
-.dragon-list li.over .dragon {
-    background-color: #eaeaea;
-}
-
-.dragging {
-    background-color: #c3c7ca;
-    /* transition: background-color 2s; */
-    transform: scale(1, 1);
-    transition: .2s ease;
-    padding: 10px;
-    opacity: 1;
-    margin: 10px 10px;
-}
-
-.dragon-item-content {
-    margin: 10px;
-}
-
-.dragon-item-overlay {
-    padding: 10px;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-color: #eee;
-    opacity: .6;
-    display: none;
 }
 
 .prevent-text-select {
@@ -195,20 +138,53 @@ canvas {
     place-items: center;
 }
 
-.mobile {
-    display: none;
+.key {
+    background-color: #eee;
+    color: #444;
+    padding: 2px 4px;
+    border: 4px;
+    border-radius: 4px;
 }
+
+.tip {
+    display: table-row;
+    margin-bottom: 2px;
+}
+
+.help {
+    position: absolute;
+    right: 16px;
+    padding: 8px;
+    z-index: 1;
+    display: table;
+    font-size: 1.1rem;
+}
+
+.active {
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
 
 /* media queries */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
+
+    .page-center {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: initial;
+        height: calc(100vh - 56px);
+        padding: 20px;
+    }
+
     .page-center-contents {
         min-width: 100%;
     }
-    .mobile {
-        display: block;
-    }
+    
     .text-overflow-hidden {
         white-space: nowrap;
         overflow: hidden;
@@ -248,28 +224,4 @@ canvas {
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (max-width: 1400px) {
     
-}
-
-/* to fix */
-
-.key {
-    background-color: #eee;
-    color: #444;
-    padding: 2px 4px;
-    border: 4px;
-    border-radius: 4px;
-}
-
-.tip {
-    display: table-row;
-    margin-bottom: 2px; 
-}
-
-.help {
-    position: absolute;
-    right: 16px;
-    padding: 8px;
-    z-index: 1;
-    display: table;
-    font-size: 1.1rem;
 }

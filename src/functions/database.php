@@ -2,10 +2,13 @@
 
 class Database {
 
-    public $host = "localhost";
-    public $dbname = "admin";
-    public $username = "root";
-    public $password = "";
+    // These credentials are for MY local machine
+    // NEVER push your live credentials up to github
+    
+    public $host = "localhost"; // this is localhost on your pc
+    public $dbname = "mindcup"; // this is whatever you name your database
+    public $username = "root"; // this is typically root
+    public $password = "Test123!"; // your password is probably an empty string
 
         public static $columns = [
         'tbl_users_columns' => ['id', 'user_guid', 'username', 'email', 'password', 'date'],

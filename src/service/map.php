@@ -42,7 +42,7 @@ class MapService extends BaseService {
     public function prepare_mind_wired_data ($user_guid) {
 
         $y = -120;
-        $x = 300;
+        $x = 100;
 
         $result = [];
 
@@ -100,7 +100,7 @@ class MapService extends BaseService {
                     $y += 40;
                     
                     $thought['model'] = ['text' => $thought['title']];
-                    $thought['view'] = ['x' => $x + 300, 'y' => $y + 40];
+                    $thought['view'] = ['x' => $x + 200, 'y' => $y + 40];
                     unset($thought[1]);
                     unset($thought[2]);
                     unset($thought[3]);

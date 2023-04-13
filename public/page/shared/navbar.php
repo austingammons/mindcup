@@ -10,12 +10,13 @@
                     <a class="nav-link" href="../thought/index">Thoughts</a>
                     <a class="nav-link" href="../concept/index">Concepts</a>
                     <a class="nav-link" href="../paradigm/index">Paradigms</a>
+                    <a class="nav-link" href="../map/index">Mapping</a>
                 <?php endif; ?>
             </div>
             <div class="navbar-nav ms-auto">
                 <?php if (isset($_SESSION['user'])): ?>
-                    <a class="nav-link" href="../thought/index">Account</a>
-                    <a class="nav-link" href="../thought/index">Settings</a>
+                    <a class="nav-link" href="../account/dashboard">Account</a>
+                    <a class="nav-link" href="../account/settings">Settings</a>
                     <a class="nav-link" href="../account/logout">Logout</a>
                 <?php else: ?>
                     <a class="nav-link" href="../account/login">Login</a>
